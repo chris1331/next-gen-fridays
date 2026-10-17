@@ -2,11 +2,13 @@
   "name": "next-gen-fridays",
   "account_id": "2e2ba5ba94b2d7d3fbb0cc0329401a38",
   "compatibility_date": "2026-10-01",
+  "workers_dev": true,
   "assets": {
     "directory": "./dist"
-  },
-  "routes": [
-    { "pattern": "nextgenfridays.com", "custom_domain": true },
-    { "pattern": "www.nextgenfridays.com", "custom_domain": true }
-  ]
+  }
+  // Uncomment once nextgenfridays.com is an active zone in this Cloudflare account:
+  // "routes": [
+  //   { "pattern": "nextgenfridays.com", "custom_domain": true },
+  //   { "pattern": "www.nextgenfridays.com", "custom_domain": true }
+  // ]
 }
