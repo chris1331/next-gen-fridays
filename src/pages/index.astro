@@ -1,0 +1,353 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AlumniCard from '../components/AlumniCard.astro';
+
+const allAlumni = (await getCollection('alumni')).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+
+<BaseLayout
+  title="Home – Next-Gen Fridays"
+  description="Next-Gen Fridays is here to showcase the creative and entrepreneurial work that the next generation is doing. Shaking off the media’s negative stereotypes. Let’s flip the script and share all the good that the next generation is doing."
+  ogImage="/images/og-home.jpg"
+>
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero-parallax">
+    <div class="container hero-container">
+      <div class="grid-12 hero-grid">
+        <div class="hero-copy-col">
+          <p class="hero-eyebrow text-label-lg">NEXT-GEN Fridays</p>
+          <h1 class="text-display hero-headline">
+            Helping Youth{' '}
+            <span class="highlight-word">
+              Win
+              <svg
+                class="highlight-svg"
+                 xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 500 150"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path d="M9.3,127.3c49.3-3,150.7-7.6,199.7-7.4c121.9,0.4,189.9,0.4,282.3,7.2C380.1,129.6,181.2,130.6,70,139 c82.6-2.9,254.2-1,335.9,1.3c-56,1.4-137.2-0.3-197.1,9"></path>
+              </svg>
+            </span>
+          </h1>
+          <p class="text-body-lg hero-subcopy">
+            Showcasing the creative and entrepreneurial stories of the next generation.
+          </p>
+          <div class="hero-actions">
+            <a href="#latest-stories" class="btn-primary">Listen to the Archive</a>
+            <a href="/alumni/" class="btn-ghost">Explore All Alumni</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-col">
+          <div class="kinetic-shape shape-circle" aria-hidden="true"></div>
+          <div class="kinetic-shape shape-square" aria-hidden="true"></div>
+          <div class="hero-image-frame">
+            <img
+              src="/images/hero-chris.webp"
+              alt="Chris Latham – Host of Next-Gen Fridays"
+              width="1304"
+              height="1009"
+              fetchpriority="high"
+              class="hero-portrait"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section: What Is Next-Gen Fridays? -->
+  <section class="mission-section" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="mission-card surface-card">
+        <div class="mission-icon-badge" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 512 512" fill="currentColor">
+            <path d="M64 352c10.1 0 19.6 2.5 28.2 6.8l27.8-41.7c-14.2-21-24-45.6-27.1-72.4C60.7 238.1 32 214.2 32 176c0-35.3 28.7-64 64-64 5.9 0 11.7.8 17.1 2.3C144.8 68.8 197 32 256 32s111.2 36.8 142.9 82.3c5.5-1.5 11.2-2.3 17.1-2.3 35.3 0 64 28.7 64 64 0 38.2-28.7 62.1-60.9 68.7-3.1 26.8-12.9 51.4-27.1 72.4l27.8 41.7c8.6-4.3 18.1-6.8 28.2-6.8 35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64c0-10.1 2.5-19.6 6.8-28.2l-26.6-39.9C334.7 368.8 296.8 384 256 384s-78.7-15.2-108.2-36.1l-26.6 39.9c4.3 8.6 6.8 18.1 6.8 28.2 0 35.3-28.7 64-64 64s-64-28.7-64-64 28.7-64 64-64zm192-224c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96z" />
+          </svg>
+        </div>
+        <h2 id="mission-heading" class="text-headline-lg mission-title">
+          What Is Next-Gen Fridays?
+        </h2>
+        <p class="text-body-lg mission-text">
+          Next-Gen Fridays is here to showcase the creative and entrepreneurial work that the next generation is doing. Shaking off the media’s negative stereotypes. Let’s flip the script and share all the good that the next generation is doing.
+        </p>
+        <p class="text-body-lg mission-text mission-followup">
+          <strong>Next-Gen Fridays is now an archive.</strong> Every episode is still here to listen to. Want to hear what I’m working on now?
+        </p>
+        <div class="mission-actions">
+          <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="btn-primary">Read the Blog</a>
+          <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="btn-ghost">Get the Newsletter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Stories Section -->
+  <section id="latest-stories" class="stories-section" aria-labelledby="stories-heading">
+    <div class="container">
+      <div class="stories-header">
+        <div>
+          <h2 id="stories-heading" class="text-headline-lg stories-title">
+            Listen to the Latest Stories🎧
+          </h2>
+          <p class="text-body-lg stories-subtitle">
+            Click on the magazine cover to listen.
+          </p>
+        </div>
+        <a href="/alumni/" class="btn-ghost">View Full Directory</a>
+      </div>
+
+      <div class="stories-grid">
+        {
+          allAlumni.map((entry) => (
+            <AlumniCard
+              name={entry.data.name}
+              slug={entry.data.slug}
+              coverImage={entry.data.coverImage}
+              coverImageAlt={entry.data.coverImageAlt}
+              pubDate={entry.data.pubDate}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const hero = document.getElementById('hero-parallax');
+  if (hero && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hero.addEventListener('pointermove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 24;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 24;
+      hero.style.setProperty('--parallax-x', `${x.toFixed(1)}px`);
+      hero.style.setProperty('--parallax-y', `${y.toFixed(1)}px`);
+    });
+  }
+</script>
+
+<style>
+  .hero-section {
+    --parallax-x: 0px;
+    --parallax-y: 0px;
+    position: relative;
+    padding: var(--space-xl) 0 var(--space-2xl);
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    align-items: center;
+  }
+
+  .hero-copy-col {
+    grid-column: span 6;
+    z-index: 2;
+  }
+
+  .hero-visual-col {
+    grid-column: span 6;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 1023px) {
+    .hero-copy-col,
+    .hero-visual-col {
+      grid-column: span 8;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-copy-col,
+    .hero-visual-col {
+      grid-column: span 4;
+    }
+  }
+
+  .hero-eyebrow {
+    color: var(--color-neon-crimson);
+    margin: 0 0 1rem;
+  }
+
+  .hero-headline {
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight-word {
+    position: relative;
+    display: inline-block;
+    color: var(--color-pure-white);
+  }
+
+  .highlight-svg {
+    position: absolute;
+    left: -6%;
+    bottom: -18%;
+    width: 112%;
+    height: 0.45em;
+    pointer-events: none;
+  }
+
+  .highlight-svg path {
+    fill: none;
+    stroke: var(--color-neon-crimson);
+    stroke-width: 14;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-subcopy {
+    max-width: 32rem;
+    margin: 0 0 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-image-frame {
+    position: relative;
+    z-index: 2;
+    max-width: 540px;
+    width: 100%;
+  }
+
+  .hero-portrait {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.75));
+  }
+
+  /* Kinetic Floating Geometric Accents */
+  .kinetic-shape {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 0.15s ease-out;
+  }
+
+  .shape-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 9999px;
+    border: 4px solid var(--color-neon-crimson);
+    box-shadow: 0 0 32px rgba(236, 0, 68, 0.25);
+    top: 8%;
+    right: 6%;
+    transform: translate3d(calc(var(--parallax-x) * -1), calc(var(--parallax-y) * -1), 0);
+  }
+
+  .shape-square {
+    width: 150px;
+    height: 150px;
+    border: 4px solid var(--color-kinetic-vermilion);
+    border-radius: var(--radius-default);
+    bottom: 10%;
+    left: 4%;
+    transform: translate3d(var(--parallax-x), var(--parallax-y), 0) rotate(24deg);
+  }
+
+  /* Mission Section */
+  .mission-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .mission-card {
+    max-width: 56rem;
+    margin-inline: auto;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-elevated-1) 0%, var(--color-card-surface) 100%);
+    border: 1px solid var(--color-charcoal-elevated);
+    box-shadow: 0 0 48px rgba(236, 0, 68, 0.08);
+  }
+
+  .mission-icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: var(--radius-lg);
+    background-color: rgba(236, 0, 68, 0.15);
+    border: 1px solid rgba(236, 0, 68, 0.35);
+    color: var(--color-neon-crimson);
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-title {
+    margin-bottom: 1rem;
+  }
+
+  .mission-text {
+    max-width: 42rem;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 30px;
+    color: var(--color-on-surface-muted);
+  }
+
+  .mission-followup {
+    margin-top: 1.5rem;
+  }
+
+  .mission-followup strong {
+    color: var(--color-pure-white);
+  }
+
+  .mission-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  /* Stories Grid Section */
+  .stories-section {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+
+  .stories-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .stories-title {
+    margin-bottom: 0.5rem;
+  }
+
+  .stories-subtitle {
+    margin: 0;
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gutter);
+  }
+
+  @media (max-width: 767px) {
+    .stories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .mission-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

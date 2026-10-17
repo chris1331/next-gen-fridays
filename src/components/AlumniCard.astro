@@ -1,0 +1,141 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  coverImage: string;
+  coverImageAlt: string;
+  pubDate?: string;
+  priority?: boolean;
+}
+
+const {
+  name,
+  slug,
+  coverImage,
+  coverImageAlt,
+  priority = false,
+} = Astro.props;
+---
+
+<article class="alumni-card" data-alumni-name={name.toLowerCase()}>
+  <a href={`/alumni/${slug}/`} class="alumni-card-link" aria-label={`Listen to ${name} episode`}>
+    <div class="alumni-card-media">
+      {
+        priority ? (
+          <img
+            src={coverImage}
+            alt={coverImageAlt}
+            width="1080"
+            height="1080"
+            fetchpriority="high"
+            class="alumni-cover-img"
+          />
+        ) : (
+          <img
+            src={coverImage}
+            alt={coverImageAlt}
+            width="1080"
+            height="1080"
+            loading="lazy"
+            class="alumni-cover-img"
+          />
+        )
+      }
+      <div class="alumni-card-overlay">
+        <span class="badge-kinetic listen-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          Listen Episode
+        </span>
+        <h3 class="alumni-card-title">{name}</h3>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .alumni-card {
+    background-color: var(--color-card-surface);
+    border: 1px solid var(--color-charcoal-elevated);
+    border-radius: var(--radius-default);
+    padding: 0.75rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .alumni-card:hover,
+  .alumni-card:focus-within {
+    background-color: var(--color-elevated-2);
+    border-color: rgba(236, 0, 68, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px rgba(236, 0, 68, 0.15);
+  }
+
+  .alumni-card-link {
+    display: block;
+    color: var(--color-pure-white);
+    text-decoration: none;
+  }
+
+  .alumni-card-media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-obsidian-base);
+  }
+
+  .alumni-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .alumni-card:hover .alumni-cover-img,
+  .alumni-card:focus-within .alumni-cover-img {
+    transform: scale(1.03);
+  }
+
+  .alumni-card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    background: linear-gradient(
+      180deg,
+      rgba(12, 12, 12, 0.35) 0%,
+      rgba(12, 12, 12, 0.88) 100%
+    );
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .alumni-card:hover .alumni-card-overlay,
+  .alumni-card:focus-within .alumni-card-overlay {
+    opacity: 1;
+  }
+
+  .listen-pill {
+    background-color: var(--color-neon-crimson);
+    color: var(--color-pure-white);
+    border-color: transparent;
+    box-shadow: 0 0 16px rgba(236, 0, 68, 0.5);
+  }
+
+  .alumni-card-title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 28px;
+    color: var(--color-pure-white);
+    letter-spacing: -0.01em;
+  }
+</style>

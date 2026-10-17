@@ -1,0 +1,33 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import AlumniSingleLayout from '../../layouts/AlumniSingleLayout.astro';
+
+export async function getStaticPaths() {
+  const allAlumni = (await getCollection('alumni')).sort(
+    (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+
+  return allAlumni.map((entry, index) => {
+    const others = allAlumni.filter((item) => item.data.slug !== entry.data.slug);
+    const pastEpisodes = [
+      others[index % others.length],
+      others[(index + 1) % others.length],
+      others[(index + 2) % others.length],
+    ].filter(Boolean);
+
+    return {
+      params: { slug: entry.data.slug },
+      props: { entry, pastEpisodes },
+    };
+  });
+}
+
+interface Props {
+  entry: CollectionEntry<'alumni'>;
+  pastEpisodes: CollectionEntry<'alumni'>[];
+}
+
+const { entry, pastEpisodes } = Astro.props;
+---
+
+<AlumniSingleLayout entry={entry} pastEpisodes={pastEpisodes} />

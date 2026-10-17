@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About me – Next-Gen Fridays"
+  description="Waddup Family, I learned years ago that helping someone else win is more rewarding than me getting my own win."
+  ogImage="/images/og-about.jpg"
+>
+  <section class="about-section">
+    <div class="container">
+      <div class="grid-12 about-grid">
+        <!-- Left Column: Sticky Portrait & Kinetic Shapes -->
+        <div class="about-portrait-col">
+          <div class="portrait-sticky">
+            <div class="about-shape about-shape-square" aria-hidden="true"></div>
+            <div class="about-shape about-shape-circle" aria-hidden="true"></div>
+            <div class="portrait-card surface-card">
+              <img
+                src="/images/about-chris.jpg"
+                alt="Chris Latham – Host of Next-Gen Fridays"
+                width="720"
+                height="1080"
+                fetchpriority="high"
+                class="about-portrait-img"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Story & Bio -->
+        <div class="about-content-col">
+          <div class="about-card surface-card">
+            <h1 class="text-display about-heading">Waddup Family,🤸🏿‍♂️</h1>
+
+            <p class="text-body-lg lead-paragraph">
+              I learned years ago that helping someone else win is more rewarding than me getting my own win.
+            </p>
+
+            <p class="text-body-lg">
+              If you never met me here are the bullet points on what you need to know:
+            </p>
+
+            <ul class="about-list text-body-lg">
+              <li>I love burgers (mustard, pickles, ketchup, onions)</li>
+              <li>I love pistachio gelato</li>
+              <li>I watch Youtube videos and listen to podcasts at 2x speed</li>
+              <li>I am <strong>RELENTLESSLY CURIOUS</strong></li>
+              <li>I love to go down rabbit holes of information</li>
+              <li>I’m still collecting stories, just in a new spot now (see below 👇🏿)</li>
+            </ul>
+
+            <p class="text-body-lg">
+              These days I’m writing about marketing, AI, and whatever rabbit hole I’m down that week over at{' '}
+              <a
+                href="https://chrislatham.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-inline-link"
+              >
+                chrislatham.ca
+              </a>. I’m also helping people show up on camera and use AI to buy back time for the human stuff at{' '}
+              <a
+                href="https://thelatham.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-inline-link"
+              >
+                thelatham.net
+              </a>. Pull up a virtual burger at either one.🍔
+            </p>
+
+            <hr class="section-divider" />
+
+            <h2 class="text-headline-md section-subheading">Why</h2>
+
+            <p class="text-body-lg">
+              I started Next-Gen Fridays out of selfishness. I enjoy having DOPE conversations hearing people’s stories. The other reason is to help shake the stigma on the youth being seen as lazy and spoiled.
+            </p>
+
+            <h2 class="text-headline-md champion-heading">
+              I am championing the Next generation of creatives and entrepreneurs.
+            </h2>
+
+            <p class="text-body-lg">
+              We all need someone to believe in us and our goals to push through the hard times.
+            </p>
+
+            <p class="text-body-lg sign-off">
+              Enjoy the archive, then come find me at{' '}
+              <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="cta-inline-link">chrislatham.ca</a>
+              {' '}and{' '}
+              <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="cta-inline-link">thelatham.net</a>.✌🏿
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-section {
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .about-grid {
+    align-items: start;
+  }
+
+  .about-portrait-col {
+    grid-column: span 5;
+    position: sticky;
+    top: 6.5rem;
+  }
+
+  .about-content-col {
+    grid-column: span 7;
+  }
+
+  @media (max-width: 1023px) {
+    .about-portrait-col {
+      grid-column: span 8;
+      position: static;
+    }
+
+    .about-content-col {
+      grid-column: span 8;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .about-portrait-col,
+    .about-content-col {
+      grid-column: span 4;
+    }
+  }
+
+  .portrait-sticky {
+    position: relative;
+  }
+
+  .portrait-card {
+    position: relative;
+    z-index: 2;
+    padding: 0.75rem;
+  }
+
+  .about-portrait-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  .about-shape {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .about-shape-square {
+    width: 120px;
+    height: 120px;
+    border: 3px solid var(--color-neon-crimson);
+    border-radius: var(--radius-default);
+    top: -1rem;
+    left: -1rem;
+    transform: rotate(-14deg);
+  }
+
+  .about-shape-circle {
+    width: 140px;
+    height: 140px;
+    border: 3px solid var(--color-kinetic-vermilion);
+    border-radius: 9999px;
+    bottom: -1rem;
+    right: -1rem;
+  }
+
+  .about-card {
+    padding: 2.5rem;
+  }
+
+  @media (max-width: 767px) {
+    .about-card {
+      padding: 1.5rem;
+    }
+  }
+
+  .about-heading {
+    margin-bottom: 1.5rem;
+    text-decoration: underline;
+    text-decoration-color: var(--color-neon-crimson);
+    text-underline-offset: 8px;
+    text-decoration-thickness: 4px;
+  }
+
+  .lead-paragraph {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    color: var(--color-pure-white);
+  }
+
+  .about-list {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .about-list li::marker {
+    color: var(--color-neon-crimson);
+  }
+
+  .about-list strong {
+    color: var(--color-pure-white);
+  }
+
+  .cta-inline-link {
+    font-weight: 700;
+    color: var(--color-neon-crimson);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .cta-inline-link:hover {
+    color: var(--color-kinetic-vermilion);
+  }
+
+  .section-divider {
+    border: 0;
+    border-top: 1px solid var(--color-charcoal-elevated);
+    margin: 2rem 0;
+  }
+
+  .section-subheading {
+    margin-bottom: 0.75rem;
+    color: var(--color-neon-crimson);
+  }
+
+  .champion-heading {
+    margin: 2rem 0 1rem;
+    color: var(--color-pure-white);
+  }
+
+  .sign-off {
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: var(--color-pure-white);
+  }
+</style>

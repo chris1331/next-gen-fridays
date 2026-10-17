@@ -1,0 +1,144 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AlumniCard from '../../components/AlumniCard.astro';
+
+const allAlumni = (await getCollection('alumni')).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+
+<BaseLayout
+  title="Alumni – Next-Gen Fridays"
+  description="Browse the complete Next-Gen Fridays Alumni podcast archive and listen to stories from young creatives, innovators, and entrepreneurs."
+  ogImage="/images/og-home.jpg"
+>
+  <section class="alumni-archive-section">
+    <div class="container">
+      <div class="archive-header">
+        <div class="archive-title-group">
+          <span class="badge-kinetic">16 Featured Guests</span>
+          <h1 class="text-display archive-heading">Alumni</h1>
+          <p class="text-body-lg archive-subtitle">
+            Click on a magazine cover to read the guest’s story and listen to their episode.
+          </p>
+        </div>
+
+        <div class="archive-search-box">
+          <label for="alumni-search" class="sr-only">Search alumni by name</label>
+          <input
+            type="search"
+            id="alumni-search"
+            class="input-kinetic"
+            placeholder="Search alumni by name..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <div id="alumni-grid" class="alumni-grid">
+        {
+          allAlumni.map((entry, idx) => (
+            <AlumniCard
+              name={entry.data.name}
+              slug={entry.data.slug}
+              coverImage={entry.data.coverImage}
+              coverImageAlt={entry.data.coverImageAlt}
+              pubDate={entry.data.pubDate}
+              priority={idx < 2}
+            />
+          ))
+        }
+      </div>
+
+      <p id="alumni-empty" class="text-body-lg empty-state" hidden>
+        No alumni match your search.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('alumni-search') as HTMLInputElement | null;
+  const cards = document.querySelectorAll<HTMLElement>('#alumni-grid .alumni-card');
+  const emptyState = document.getElementById('alumni-empty');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const name = card.getAttribute('data-alumni-name') || '';
+        const match = !query || name.includes(query);
+        card.hidden = !match;
+        if (match) visibleCount++;
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount > 0;
+      }
+    });
+  }
+</script>
+
+<style>
+  .alumni-archive-section {
+    padding: var(--space-xl) 0 var(--space-2xl);
+  }
+
+  .archive-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-charcoal-elevated);
+  }
+
+  .archive-heading {
+    margin: 0.75rem 0 0.5rem;
+    text-decoration: underline;
+    text-decoration-color: var(--color-neon-crimson);
+    text-underline-offset: 8px;
+    text-decoration-thickness: 4px;
+  }
+
+  .archive-subtitle {
+    margin: 0;
+  }
+
+  .archive-search-box {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--grid-gutter);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  @media (max-width: 1023px) {
+    .alumni-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 767px) {
+    .alumni-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .archive-search-box {
+      max-width: 100%;
+    }
+  }
+</style>

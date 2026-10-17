@@ -1,0 +1,86 @@
+[
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Next-Gen-Fridays-Logo.png",
+    "dest": "public/images/Next-Gen-Fridays-Logo.png"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2022/12/Chris-HLC-Open-Jacket.-4-cropped-1.webp",
+    "dest": "public/images/hero-chris.webp"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Chris-Latham-www.insunzastudios.com-25.jpg",
+    "dest": "public/images/about-chris.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/08/Next-Gen-Fridays-Helping-Youth-Win.jpg",
+    "dest": "public/images/og-home.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/09/About-Next-Gen-Fridays.jpg",
+    "dest": "public/images/og-about.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Naila-Moloo-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/naila-moloo.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Cheranda-Williams-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/cheranda-williams.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Rebecca-Mabbett-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/rebecca-mabbett.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Becca-TG-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/becca-tg.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Lane-Curtis-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/lane-curtis.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Myra-Farooq-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/myra-farooq.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/John-Templeton-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/john-templeton.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Michael-Oliver-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/michael-oliver.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Kate-Soar-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/kate-soar.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Floor-Van-Gestel-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/floor-van-gestel.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Max-Sher-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/max-sher.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Aaron-Rodriguez-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/aaron-rodriguez.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Trish-Whetstone.jpg",
+    "dest": "public/images/alumni/trish-whetstone.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Wes-Bookland-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/wes-bookland.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Emilie-Tapiero-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/emilie-tapiero.jpg"
+  },
+  {
+    "url": "https://nextgenfridays.com/wp-content/uploads/2021/07/Karim-Bacha-Next-Gen-Fridays-Podcast-Cover.jpg",
+    "dest": "public/images/alumni/karim-bacha.jpg"
+  }
+]
