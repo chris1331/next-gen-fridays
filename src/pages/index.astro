@@ -80,8 +80,8 @@ const allAlumni = (await getCollection('alumni')).sort(
           <strong>Next-Gen Fridays is now an archive.</strong> Every episode is still here to listen to. Want to hear what I’m working on now?
         </p>
         <div class="mission-actions">
-          <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="btn-primary">Read the Blog</a>
-          <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="btn-ghost">Get the Newsletter</a>
+          <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="btn-primary">Read the Blog<span class="sr-only"> (opens in new tab)</span></a>
+          <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="btn-ghost">Get the Newsletter<span class="sr-only"> (opens in new tab)</span></a>
         </div>
       </div>
     </div>
@@ -93,10 +93,10 @@ const allAlumni = (await getCollection('alumni')).sort(
       <div class="stories-header">
         <div>
           <h2 id="stories-heading" class="text-headline-lg stories-title">
-            Listen to the Latest Stories🎧
+            Listen to the Latest Stories<span aria-hidden="true">🎧</span>
           </h2>
           <p class="text-body-lg stories-subtitle">
-            Click on the magazine cover to listen.
+            Select a magazine cover to listen.
           </p>
         </div>
         <a href="/alumni/" class="btn-ghost">View Full Directory</a>
@@ -173,7 +173,7 @@ const allAlumni = (await getCollection('alumni')).sort(
   }
 
   .hero-eyebrow {
-    color: var(--color-neon-crimson);
+    color: var(--color-crimson-text);
     margin: 0 0 1rem;
   }
 
@@ -292,8 +292,8 @@ const allAlumni = (await getCollection('alumni')).sort(
   .mission-text {
     max-width: 42rem;
     margin: 0 auto;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
     color: var(--color-on-surface-muted);
   }
 

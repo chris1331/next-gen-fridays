@@ -14,16 +14,16 @@ const currentYear = 2026;
         <p class="connect-text">The show’s on pause. The curiosity isn’t.</p>
         <p class="connect-subtext">
           Follow what I’m up to now →{' '}
-          <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer">chrislatham.ca</a>
+          <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer">chrislatham.ca<span class="sr-only"> (opens in new tab)</span></a>
           <span class="connect-sep" aria-hidden="true">·</span>
-          <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer">thelatham.net</a>
+          <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer">thelatham.net<span class="sr-only"> (opens in new tab)</span></a>
         </p>
       </div>
     </div>
 
     <div class="footer-bottom">
       <p class="footer-credit">
-        Created by <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer">Chris MBS Latham</a> 🍔 with support of the AI Robots
+        Created by <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer">Chris MBS Latham<span class="sr-only"> (opens in new tab)</span></a> <span aria-hidden="true">🍔</span> with support of the AI Robots
       </p>
       <p class="footer-copyright">
         © {currentYear}, Chris Latham
@@ -69,20 +69,20 @@ const currentYear = 2026;
 
   .connect-text {
     margin: 0;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--color-pure-white);
   }
 
   .connect-subtext {
     margin: 0.25rem 0 0;
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--color-on-surface-muted);
   }
 
   .connect-subtext a {
     font-weight: 700;
-    color: var(--color-neon-crimson);
+    color: var(--color-crimson-text);
     text-decoration: underline;
     text-underline-offset: 4px;
   }
@@ -103,7 +103,7 @@ const currentYear = 2026;
     flex-wrap: wrap;
     gap: 1rem;
     padding-top: 1.5rem;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--color-on-surface-muted);
   }
 
@@ -114,7 +114,7 @@ const currentYear = 2026;
 
   .footer-credit a {
     font-weight: 700;
-    color: var(--color-neon-crimson);
+    color: var(--color-crimson-text);
   }
 
   .footer-credit a:hover {

@@ -46,8 +46,9 @@ const socialImageURL = new URL(ogImage, Astro.site ?? 'https://nextgenfridays.co
     <meta name="twitter:image" content={socialImageURL} />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />

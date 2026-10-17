@@ -31,7 +31,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <!-- Right Column: Story & Bio -->
         <div class="about-content-col">
           <div class="about-card surface-card">
-            <h1 class="text-display about-heading">Waddup Family,🤸🏿‍♂️</h1>
+            <h1 class="text-display about-heading">Waddup Family,<span aria-hidden="true">🤸🏿‍♂️</span></h1>
 
             <p class="text-body-lg lead-paragraph">
               I learned years ago that helping someone else win is more rewarding than me getting my own win.
@@ -47,7 +47,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               <li>I watch Youtube videos and listen to podcasts at 2x speed</li>
               <li>I am <strong>RELENTLESSLY CURIOUS</strong></li>
               <li>I love to go down rabbit holes of information</li>
-              <li>I’m still collecting stories, just in a new spot now (see below 👇🏿)</li>
+              <li>I’m still collecting stories, just in a new spot now (see below<span aria-hidden="true"> 👇🏿</span>)</li>
             </ul>
 
             <p class="text-body-lg">
@@ -58,7 +58,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 rel="noopener noreferrer"
                 class="cta-inline-link"
               >
-                chrislatham.ca
+                chrislatham.ca<span class="sr-only"> (opens in new tab)</span>
               </a>. I’m also helping people show up on camera and use AI to buy back time for the human stuff at{' '}
               <a
                 href="https://thelatham.net"
@@ -66,8 +66,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 rel="noopener noreferrer"
                 class="cta-inline-link"
               >
-                thelatham.net
-              </a>. Pull up a virtual burger at either one.🍔
+                thelatham.net<span class="sr-only"> (opens in new tab)</span>
+              </a>. Pull up a virtual burger at either one.<span aria-hidden="true">🍔</span>
             </p>
 
             <hr class="section-divider" />
@@ -88,9 +88,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
             <p class="text-body-lg sign-off">
               Enjoy the archive, then come find me at{' '}
-              <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="cta-inline-link">chrislatham.ca</a>
+              <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="cta-inline-link">chrislatham.ca<span class="sr-only"> (opens in new tab)</span></a>
               {' '}and{' '}
-              <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="cta-inline-link">thelatham.net</a>.✌🏿
+              <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="cta-inline-link">thelatham.net<span class="sr-only"> (opens in new tab)</span></a>.<span aria-hidden="true">✌🏿</span>
             </p>
           </div>
         </div>
@@ -196,9 +196,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .lead-paragraph {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
-    line-height: 30px;
+    line-height: 1.875rem;
     color: var(--color-pure-white);
   }
 
@@ -220,7 +220,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   .cta-inline-link {
     font-weight: 700;
-    color: var(--color-neon-crimson);
+    color: var(--color-crimson-text);
     text-decoration: underline;
     text-underline-offset: 4px;
   }

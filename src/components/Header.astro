@@ -104,16 +104,26 @@ function isActive(href: string, currentPath: string) {
   const mobileDrawer = document.getElementById('mobile-nav-drawer');
 
   if (toggleBtn && mobileDrawer) {
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      const nextState = !isExpanded;
-      toggleBtn.setAttribute('aria-expanded', String(nextState));
-      if (nextState) {
+    const setOpen = (open: boolean) => {
+      toggleBtn.setAttribute('aria-expanded', String(open));
+      if (open) {
         mobileDrawer.removeAttribute('inert');
         mobileDrawer.classList.add('is-open');
       } else {
         mobileDrawer.setAttribute('inert', '');
         mobileDrawer.classList.remove('is-open');
+      }
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      setOpen(toggleBtn.getAttribute('aria-expanded') !== 'true');
+    });
+
+    // Escape closes the menu and returns focus to the toggle
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggleBtn.focus();
       }
     });
   }
@@ -171,7 +181,7 @@ function isActive(href: string, currentPath: string) {
     align-items: center;
     padding: 0.5rem 0;
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -270,7 +280,7 @@ function isActive(href: string, currentPath: string) {
     display: block;
     padding: 0.75rem 1rem;
     border-radius: var(--radius-default);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;

@@ -20,7 +20,7 @@ const allAlumni = (await getCollection('alumni')).sort(
           <span class="badge-kinetic">16 Featured Guests</span>
           <h1 class="text-display archive-heading">Alumni</h1>
           <p class="text-body-lg archive-subtitle">
-            Click on a magazine cover to read the guest’s story and listen to their episode.
+            Select a magazine cover to read the guest’s story and listen to their episode.
           </p>
         </div>
 
@@ -35,6 +35,9 @@ const allAlumni = (await getCollection('alumni')).sort(
           />
         </div>
       </div>
+
+      <h2 class="sr-only">All alumni episodes</h2>
+      <p id="alumni-status" class="sr-only" role="status" aria-live="polite"></p>
 
       <div id="alumni-grid" class="alumni-grid">
         {
@@ -62,6 +65,7 @@ const allAlumni = (await getCollection('alumni')).sort(
   const searchInput = document.getElementById('alumni-search') as HTMLInputElement | null;
   const cards = document.querySelectorAll<HTMLElement>('#alumni-grid .alumni-card');
   const emptyState = document.getElementById('alumni-empty');
+  const status = document.getElementById('alumni-status');
 
   if (searchInput) {
     searchInput.addEventListener('input', () => {
@@ -77,6 +81,14 @@ const allAlumni = (await getCollection('alumni')).sort(
 
       if (emptyState) {
         emptyState.hidden = visibleCount > 0;
+      }
+
+      if (status) {
+        status.textContent = !query
+          ? ''
+          : visibleCount === 0
+            ? 'No alumni match your search.'
+            : `${visibleCount} ${visibleCount === 1 ? 'alumnus' : 'alumni'} found.`;
       }
     });
   }

@@ -52,7 +52,7 @@ function getSocialIcon(label: string) {
     <div class="container">
       <div class="grid-12 alumni-split">
         <!-- Left Column: Sticky Guest Profile & Socials -->
-        <aside class="alumni-profile-col">
+        <div class="alumni-profile-col">
           <div class="alumni-profile-sticky">
             <a href="/alumni/" class="back-link">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
@@ -121,6 +121,7 @@ function getSocialIcon(label: string) {
                               </svg>
                             )}
                             <span>{social.label}</span>
+                            <span class="sr-only"> (opens in new tab)</span>
                           </a>
                         </li>
                       );
@@ -130,7 +131,7 @@ function getSocialIcon(label: string) {
               )
             }
           </div>
-        </aside>
+        </div>
 
         <!-- Right Column: Magazine Cover, Spotify Players & Q&A -->
         <div class="alumni-media-col">
@@ -211,11 +212,11 @@ function getSocialIcon(label: string) {
         <p class="text-body-lg follow-text">I’m still relentlessly curious, just in new places.</p>
         <ul class="follow-list">
           <li>
-            <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="follow-link">chrislatham.ca</a>
+            <a href="https://chrislatham.ca" target="_blank" rel="noopener noreferrer" class="follow-link">chrislatham.ca<span class="sr-only"> (opens in new tab)</span></a>
             <span class="follow-desc">Marketing, AI and the rabbit holes in between</span>
           </li>
           <li>
-            <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="follow-link">thelatham.net</a>
+            <a href="https://thelatham.net" target="_blank" rel="noopener noreferrer" class="follow-link">thelatham.net<span class="sr-only"> (opens in new tab)</span></a>
             <span class="follow-desc">Show up on camera. Buy back the human.</span>
           </li>
         </ul>
@@ -275,7 +276,7 @@ function getSocialIcon(label: string) {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: lowercase;
@@ -285,7 +286,7 @@ function getSocialIcon(label: string) {
   }
 
   .back-link:hover {
-    color: var(--color-neon-crimson);
+    color: var(--color-crimson-text);
     transform: translateX(-3px);
   }
 
@@ -316,7 +317,7 @@ function getSocialIcon(label: string) {
   }
 
   .bio-copy :global(a) {
-    color: var(--color-neon-crimson);
+    color: var(--color-crimson-text);
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -340,7 +341,7 @@ function getSocialIcon(label: string) {
     border: 1px solid var(--color-charcoal-elevated);
     border-radius: var(--radius-default);
     color: var(--color-pure-white);
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -413,20 +414,20 @@ function getSocialIcon(label: string) {
   }
 
   .qa-question {
-    color: var(--color-neon-crimson);
+    color: var(--color-crimson-text);
     margin-bottom: 0.375rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    font-size: 13px;
+    font-size: 0.8125rem;
     font-weight: 700;
   }
 
   .qa-answer {
     margin: 0;
     color: var(--color-pure-white);
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
-    line-height: 28px;
+    line-height: 1.75rem;
   }
 
   .past-episodes-section {
@@ -499,7 +500,7 @@ function getSocialIcon(label: string) {
   }
 
   .follow-link {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-neon-crimson);
     text-decoration: underline;
@@ -511,7 +512,7 @@ function getSocialIcon(label: string) {
   }
 
   .follow-desc {
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: var(--color-on-surface-muted);
   }
 
